@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 from logger.logger import cmd_logger as log
 from config.config import Config
-from crawler.who import who
-from crawler.worldometer import worldometer
 
 from argparse import ArgumentParser
 from argparse import MetavarTypeHelpFormatter
@@ -11,7 +9,6 @@ from prettytable import PrettyTable
 import traceback, sys
 
 conf = Config()
-crawlers = [who(), worldometer()]
 
 def init_argparser():
     log.debug('[Func] init_argparser')
@@ -45,7 +42,7 @@ def printListSources():
 
 def updatedata(source):
     log.debug('[Func] update single data(%s)' % source)
-    for crawler in crawlers:
+    for crawler in conf.get_crawlers():
         if source == crawler.__class__.__name__:
             crawler.updateData()
 
@@ -74,5 +71,4 @@ def router():
 if __name__ == '__main__':
     log.info('Welcom to covid19crawler ヽ(́◕◞౪◟◕‵)ﾉ')
     log.info(conf.get_project_info())
-    log.debug(conf.get_data_sources())
     router()

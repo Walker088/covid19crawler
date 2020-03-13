@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-
 from logger.logger import config_logger as log
-import os
-import yaml
+from crawler.who import who
+from crawler.worldometer import worldometer
+import yaml, os
 
 config_file_path = '{}/config/config.yaml'.format(os.getcwd())
 data_storage_path = '{}/data'.format(os.getcwd())
@@ -33,3 +33,7 @@ class Config():
 
     def get_data_storage_path(self):
         return data_storage_path
+
+    def get_crawlers(self):
+        return [who(self.get_data_storage_path(), 'who', self.get_source_url('who')),
+                worldometer(self.get_data_storage_path(), 'worldometer', self.get_source_url('worldometer'))]
