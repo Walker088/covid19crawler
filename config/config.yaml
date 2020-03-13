@@ -1,0 +1,18 @@
+project_name: "covid19crawler"
+
+owner:
+  name: "walker088"
+  email: "walker088@walker088.tw"
+
+data_sources:
+  who:
+    url:
+     - "https://cowid.netlify.com/data/total_cases.csv"
+     - "https://cowid.netlify.com/data/total_deaths.csv"
+     - "https://cowid.netlify.com/data/new_cases.csv"
+     - "https://cowid.netlify.com/data/new_deaths.csv"
+     - "http://cowid.netlify.com/data/full_data.csv"
+
+  worldometer:
+    url:
+      - "https://www.worldometers.info/coronavirus"

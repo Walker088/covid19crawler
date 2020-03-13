@@ -1,3 +1,8 @@
+# log, venv and editor
+venv
+*.log
+.vscode
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
